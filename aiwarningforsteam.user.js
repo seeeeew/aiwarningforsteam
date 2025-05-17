@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         AI warning popup for Steam
+// @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam/
-// @version      0.2.0
+// @version      0.2.1
 // @description  Shows the AI generated content disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
 // @match        https://store.steampowered.com/app/*
@@ -105,12 +105,12 @@
 				<div class="modal_top_bar"></div>
 				<div class="newmodal_header_border">
 					<div class="newmodal_header">
-						<div class="newmodal_close aiwarning_close"></div>
-						<div class="title_text aiwarning_header"></div>
+						<div class="newmodal_close"></div>
+						<div class="title_text">${header.innerHTML}</div>
 					</div>
 				</div>
 				<div class="newmodal_content_border">
-					<div class="newmodal_content">
+					<div class="newmodal_content" style="max-height: 350px;">
 						<div class="newmodal_prompt_description fullwidth aiwarning_content"></div>
 						<div style="float: right">
 							<div class="btn_blue_steamui btn_medium aiwarning_close">
@@ -121,9 +121,8 @@
 				</div>
 			</div>
 		`;
-		container.querySelector(".aiwarning_header").textContent = header.textContent;
-		container.querySelector(".aiwarning_content").append(...[...header.parentNode.cloneNode(true).childNodes].filter(node => node.tagName !== "H2"));
-		container.querySelectorAll(".aiwarning_close").forEach(element => element.addEventListener("click", event => container.remove()));
+		container.querySelector(".aiwarning_content").append(...[...header.parentNode.childNodes].filter(node => node !== header).map(node => node.cloneNode(true)));
+		container.querySelectorAll(".newmodal_close, .aiwarning_close").forEach(element => element.addEventListener("click", event => container.remove()));
 		container.addEventListener("click", event => {
 			if (event.target === container) container.remove();
 		});
