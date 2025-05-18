@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AI warning for Steam
-// @namespace    https://github.com/seeeeew/aiwarningforsteam/
-// @version      0.2.2
-// @description  Shows the AI generated content disclosure on Steam store pages as a modal popup.
+// @namespace    https://github.com/seeeeew/aiwarningforsteam
+// @version      0.2.3
+// @description  Shows the AI Generated Content Disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
 // @match        https://store.steampowered.com/app/*
 // @grant        none
@@ -84,7 +84,8 @@
 	}
 
 	function findAIDisclosureHeader() {
-		return [...document.querySelectorAll(".game_page_autocollapse > #game_area_content_descriptors > h2")].filter(element => Object.values(msg.aidisclosure).includes(element.textContent))[0];
+		const values = Object.values(msg.aidisclosure);
+		return [...document.querySelectorAll(".game_page_autocollapse > #game_area_content_descriptors > h2")].find(element => values.includes(element.textContent));
 	}
 
 	function findKeyForValue(object, value) {
@@ -114,8 +115,8 @@
 				</div>
 				<div class="newmodal_content_border">
 					<div class="newmodal_content" style="max-height: 350px;">
-						<div class="newmodal_prompt_description fullwidth aiwarning_content"></div>
-						<div style="float: right">
+						<div class="newmodal_prompt_description"></div>
+						<div class="newmodal_buttons">
 							<div class="btn_blue_steamui btn_medium aiwarning_close">
 								<span>${msg.close[language]}</span>
 							</div>
@@ -124,7 +125,7 @@
 				</div>
 			</div>
 		`;
-		container.querySelector(".aiwarning_content").append(...[...header.parentNode.childNodes].filter(node => node !== header).map(node => node.cloneNode(true)));
+		container.querySelector(".newmodal_prompt_description").append(...[...header.parentNode.childNodes].filter(node => node !== header).map(node => node.cloneNode(true)));
 		container.querySelectorAll(".newmodal_close, .aiwarning_close").forEach(element => element.addEventListener("click", event => container.remove()));
 		container.addEventListener("click", event => {
 			if (event.target === container) container.remove();
