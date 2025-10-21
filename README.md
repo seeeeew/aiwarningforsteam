@@ -2,7 +2,7 @@
 
 Shows the _AI Generated Content Disclosure_ on Steam store pages as a modal popup.
 
-![Screenshot of a popup showing an AI Generated Content Disclosure in the Steam store](https://github.com/user-attachments/assets/1f936b5d-938c-49e5-bb8c-2a88f21364d6)
+![Screenshot of a popup showing an AI Generated Content Disclosure in the Steam store](img/screenshot_github.png)
 
 If a Steam store page contains an _AI Generated Content Disclosure_, this userscript will display it as a modal popup, instead of just at the end of the page. Additionally it will blur out the rest of the page until the popup is dismissed.
 
