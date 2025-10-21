@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333332 4.2333335"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:3.39551px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;fill:none;fill-opacity:1;stroke-width:0.52916667;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke-linejoin:round"
+       x="0.39687499"
+       y="3.4889083"
+       id="text12176"><tspan
+         id="tspan12174"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:none;fill-opacity:1;stroke-width:0.52916667;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-linecap:round;stroke-linejoin:round"
+         x="0.39687499"
+         y="3.4889083">AI</tspan></text>
+    <path
+       style="fill:#ffd500;stroke:#000000;stroke-width:0.936614;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+       id="path1184"
+       d="m 15.719648,11.134251 -14.0535555,0 7.0267777,-12.1707362 z"
+       transform="matrix(0.28240254,0,0,0.28257592,-0.33822194,0.68996737)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.39551px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;fill:#ce0000;fill-opacity:1;stroke-width:0.264583"
+       x="0.39687499"
+       y="3.4889083"
+       id="text4326"><tspan
+         id="tspan4324"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ce0000;fill-opacity:1;stroke-width:0.264583"
+         x="0.39687499"
+         y="3.4889083">AI</tspan></text>
+  </g>
+</svg>
