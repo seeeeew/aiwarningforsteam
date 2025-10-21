@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      0.2.4
+// @version      0.2.5
 // @description  Shows the AI Generated Content Disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
 // @match        https://store.steampowered.com/app/*
-// @icon         https://raw.githubusercontent.com/seeeeew/aiwarningforsteam/refs/heads/main/img/logo128.png
+// @icon         https://raw.githubusercontent.com/seeeeew/aiwarningforsteam/refs/heads/main/img/icon128.png
 // @grant        none
 // @run-at       document-end
 // @updateURL    https://github.com/seeeeew/aiwarningforsteam/raw/refs/heads/main/aiwarningforsteam.user.js
