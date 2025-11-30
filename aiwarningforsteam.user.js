@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      0.2.5
+// @version      1.0.0
 // @description  Shows the AI Generated Content Disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
+// @homepage     https://github.com/seeeeew/aiwarningforsteam
 // @match        https://store.steampowered.com/app/*
 // @icon         https://raw.githubusercontent.com/seeeeew/aiwarningforsteam/refs/heads/main/img/icon128.png
 // @grant        none
@@ -85,8 +86,66 @@
 	}
 
 	function findAIDisclosureHeader() {
-		const values = Object.values(msg.aidisclosure);
-		return [...document.querySelectorAll(".game_page_autocollapse > #game_area_content_descriptors > h2")].find(element => values.includes(element.textContent));
+		const titles = Object.values(msg.aidisclosure);
+		return [...document.querySelectorAll(".game_page_autocollapse > #game_area_content_descriptors > h2")].find(element => titles.includes(element.textContent));
+	}
+
+	function injectStyle() {
+		const style = document.createElement("style");
+		style.innerHTML = `
+			.aiwarning_container {
+				position: fixed;
+				inset: 0px;
+				backdrop-filter: blur(25px);
+				z-index: 1999; /* cookie consent popup has 2000 */
+				background-color: rgba(0, 0, 0, 0.6);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.aiwarning_container .newmodal {
+				box-shadow: 0px 0px 10px #000000;
+				position: relative;
+			}
+			.aiwarning_container .title_text {
+				margin-right: 20px;
+			}
+			.aiwarning_container .newmodal_content {
+				max-height: 350px;
+			}
+			.aiwarning_watermark {
+				position: absolute;
+				left: 10px;
+				bottom: 10px;
+				color: white;
+				opacity: 0.25;
+				text-decoration: none;
+				font-size: 12px;
+			}
+			.aiwarning_watermark:hover {
+				opacity: 0.6;
+			}
+		`;
+		document.head.append(style);
+		return style;
+	}
+
+	function getMetadata() {
+		const metadata = {};
+		if (typeof GM_info !== "undefined") {
+			metadata.homepage = GM_info.script.homepage;
+			metadata.name = GM_info.script.name;
+			metadata.version = GM_info.script.version;
+		} else if (typeof browser !== "undefined") {
+			metadata.homepage = browser.runtime.getManifest().homepage_url;
+			metadata.name = browser.runtime.getManifest().name;
+			metadata.version = browser.runtime.getManifest().version;
+		} else if (typeof chrome !== "undefined") {
+			metadata.homepage = chrome.runtime.getManifest().homepage_url;
+			metadata.name = chrome.runtime.getManifest().name;
+			metadata.version = chrome.runtime.getManifest().version;
+		}
+		return metadata;
 	}
 
 	function findKeyForValue(object, value) {
@@ -94,28 +153,24 @@
 	}
 
 	function createWarning(header) {
+		const style = injectStyle();
+		const {homepage, name, version} = getMetadata();
 		const language = findKeyForValue(msg.aidisclosure, header.textContent);
 		const container = document.createElement("div");
 		container.classList.add("aiwarning_container");
-		container.style.position = "fixed";
-		container.style.inset = "0px";
-		container.style.backdropFilter = "blur(25px)";
-		container.style.zIndex = "1999"; // cookie consent popup has 2000
-		container.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
-		container.style.display = "flex";
-		container.style.justifyContent = "center";
-		container.style.alignItems = "center";
+		const appname = document.querySelector("#appHubAppName")?.textContent;
+		const title = header.innerHTML + (appname ? " for " + appname : "");
 		container.innerHTML = `
-			<div class="newmodal" style="box-shadow: 0px 0px 10px #000000;">
+			<div class="newmodal">
 				<div class="modal_top_bar"></div>
 				<div class="newmodal_header_border">
 					<div class="newmodal_header">
 						<div class="newmodal_close"></div>
-						<div class="title_text">${header.innerHTML}</div>
+						<div class="title_text">${title}</div>
 					</div>
 				</div>
 				<div class="newmodal_content_border">
-					<div class="newmodal_content" style="max-height: 350px;">
+					<div class="newmodal_content">
 						<div class="newmodal_prompt_description"></div>
 						<div class="newmodal_buttons">
 							<div class="btn_blue_steamui btn_medium aiwarning_close">
@@ -124,12 +179,17 @@
 						</div>
 					</div>
 				</div>
+				<a href="${homepage}" class="aiwarning_watermark">${name} v${version}</a>
 			</div>
 		`;
 		container.querySelector(".newmodal_prompt_description").append(...[...header.parentNode.childNodes].filter(node => node !== header).map(node => node.cloneNode(true)));
-		container.querySelectorAll(".newmodal_close, .aiwarning_close").forEach(element => element.addEventListener("click", event => container.remove()));
+		function closeWarning() {
+			container.remove();
+			style.remove();
+		}
+		container.querySelectorAll(".newmodal_close, .aiwarning_close").forEach(element => element.addEventListener("click", closeWarning));
 		container.addEventListener("click", event => {
-			if (event.target === container) container.remove();
+			if (event.target === container) closeWarning();
 		});
 		document.body.append(container);
 	}

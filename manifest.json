@@ -7,7 +7,7 @@
 	"icons": {
 		"128": "img/icon128.png"
 	},
-	"version": "0.2.5",
+	"version": "1.0.0",
 	"content_scripts": [
 		{
 			"matches": [
@@ -20,7 +20,10 @@
 	],
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "{29428906-aec3-11f0-beb4-6f7e24e82795}"
+			"id": "{29428906-aec3-11f0-beb4-6f7e24e82795}",
+			"data_collection_permissions": {
+				"required": ["none"]
+			}
 		}
 	}
 }
