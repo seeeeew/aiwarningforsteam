@@ -24,7 +24,7 @@ This option is slightly less straight-forward, if you've never used a userscript
 
 ## Platform and Language Support
 
-The native browser extension should work in any up-to-date version of Firefox, Chrome, or any related browsers that can install extensions from the same sources, on any desktop OS.
+The native browser extension should work in any up-to-date version of Firefox, Chrome, or any related browsers that can install extensions from the same sources, on any desktop OS. The Firefox version also works on mobile systems.
 
 The userscript should work in any up-to-date browser with userscript support on any desktop or mobile OS.
 
