@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      1.0.0
+// @version      1.0.1
 // @description  Shows the AI Generated Content Disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
 // @homepage     https://github.com/seeeeew/aiwarningforsteam
@@ -159,7 +159,7 @@
 		const container = document.createElement("div");
 		container.classList.add("aiwarning_container");
 		const appname = document.querySelector("#appHubAppName")?.textContent;
-		const title = header.innerHTML + (appname ? " for " + appname : "");
+		const title = header.innerHTML + (appname ? " — " + appname : "");
 		container.innerHTML = `
 			<div class="newmodal">
 				<div class="modal_top_bar"></div>
