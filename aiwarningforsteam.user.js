@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      1.0.1
+// @version      1.0.2
 // @description  Shows the AI Generated Content Disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
 // @homepage     https://github.com/seeeeew/aiwarningforsteam
@@ -42,7 +42,7 @@
 			portuguese: "Divulgação de conteúdo gerado por IA",
 			brazilian: "Divulgação de conteúdo gerado por IA",
 			romanian: "Informații despre conținutul generat de IA",
-			russian: "Информация о контенте, созданном с помощью ИИ",
+			russian: "Информация об ИИ-контенте",
 			finnish: "Tiedote tekoälysisällöstä",
 			swedish: "Upplysning om AI-genererat innehåll",
 			turkish: "Yapay Zekâ İçeriği Açıklaması",
