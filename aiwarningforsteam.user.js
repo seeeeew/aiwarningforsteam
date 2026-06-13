@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      1.0.2
+// @version      1.0.3
 // @description  Shows the AI Generated Content Disclosure on Steam store pages as a modal popup.
 // @author       seeeeew
 // @homepage     https://github.com/seeeeew/aiwarningforsteam
@@ -24,6 +24,8 @@
 			japanese: "AI生成コンテンツの開示",
 			koreana: "AI 생성 콘텐츠 사용 공개",
 			thai: "การเปิดเผยข้อมูลเกี่ยวกับเนื้อหาที่สร้างด้วย AI",
+			indonesian: "Pernyataan Konten Buatan AI",
+			malay: "Pendedahan Kandungan Dihasilkan AI",
 			bulgarian: "Оповестяване за съдържание, генерирано от ИИ",
 			czech: "Informace o obsahu vytvářeném AI",
 			danish: "Meddelelse om AI-genereret indhold",
@@ -34,7 +36,6 @@
 			greek: "Γνωστοποίηση περιεχομένου που δημιουργήθηκε από τεχνητή νοημοσύνη (AI)",
 			french: "Divulgation de contenu généré par IA",
 			italian: "Divulgazione dei contenuti generati dall'IA",
-			indonesian: "Pernyataan Konten Buatan AI",
 			hungarian: "Nyilatkozat MI generálta tartalomról",
 			dutch: "Informatie over door AI gegenereerde inhoud",
 			norwegian: "Opplysning om AI-generert innhold",
@@ -55,6 +56,8 @@
 			japanese: "閉じる",
 			koreana: "닫기",
 			thai: "ปิด",
+			indonesian: "Tutup",
+			malay: "Tutup",
 			bulgarian: "Затваряне",
 			czech: "Zavřít",
 			danish: "Luk",
@@ -65,7 +68,6 @@
 			greek: "Κλείσιμο",
 			french: "Fermer",
 			italian: "Chiudi",
-			indonesian: "Tutup",
 			hungarian: "Bezárás",
 			dutch: "Sluiten",
 			norwegian: "Lukk",
