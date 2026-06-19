@@ -7,11 +7,13 @@
 	"icons": {
 		"128": "img/icon128.png"
 	},
-	"version": "1.0.3",
+	"version": "1.1.0",
+	"permissions": ["storage"],
 	"content_scripts": [
 		{
 			"matches": [
-				"*://store.steampowered.com/app/*"
+				"*://store.steampowered.com/app/*",
+				"*://store.steampowered.com/search*"
 			],
 			"js": [
 				"aiwarningforsteam.user.js"
