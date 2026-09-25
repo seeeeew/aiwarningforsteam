@@ -2,12 +2,12 @@
 	"manifest_version": 3,
 	"name": "AI warning for Steam",
 	"short_name": "AI warning",
-	"description": "Show the AI Generated Content Disclosure on Steam store pages as a modal popup.",
+	"description": "Adds features to increase the visibility of AI Generated Content Disclosures in the Steam store.",
 	"homepage_url": "https://github.com/seeeeew/aiwarningforsteam",
 	"icons": {
 		"128": "img/icon128.png"
 	},
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"permissions": ["storage"],
 	"content_scripts": [
 		{

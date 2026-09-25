@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      1.1.0
+// @version      1.1.1
 // @description  Adds features to increase the visibility of AI Generated Content Disclosures.
 // @author       seeeeew
 // @homepage     https://github.com/seeeeew/aiwarningforsteam
@@ -38,7 +38,7 @@
 			spanish: "Información sobre contenido generado por IA",
 			latam: "Información sobre contenido generado por IA",
 			greek: "Γνωστοποίηση περιεχομένου που δημιουργήθηκε από τεχνητή νοημοσύνη (AI)",
-			french: "Divulgation de contenu généré par IA",
+			french: "Notification de contenu généré par IA",
 			italian: "Divulgazione dei contenuti generati dall'IA",
 			hungarian: "Nyilatkozat MI generálta tartalomról",
 			dutch: "Informatie over door AI gegenereerde inhoud",
