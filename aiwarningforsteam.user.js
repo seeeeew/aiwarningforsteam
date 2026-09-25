@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AI warning for Steam
 // @namespace    https://github.com/seeeeew/aiwarningforsteam
-// @version      1.1.1
+// @version      1.1.2
 // @description  Adds features to increase the visibility of AI Generated Content Disclosures.
 // @author       seeeeew
 // @homepage     https://github.com/seeeeew/aiwarningforsteam
@@ -17,7 +17,7 @@
 // @license      MIT
 // ==/UserScript==
 
-(function() {
+(async function() {
 
 	if (window.browser == undefined && window.chrome !== undefined) window.browser = window.chrome;
 
@@ -123,6 +123,12 @@
 		}
 	}
 
+	const lastVersion = await Config.get("lastVersion");
+	if (!lastVersion || lastVersion !== version) {
+		await Config.set("lastUpdate", new Date().toISOString());
+		await Config.set("lastVersion", version);
+	}
+	const lastUpdate = new Date(await Config.get("lastUpdate")).getTime();
 	const AIDisclosureCache = {
 		set: async (appid, aidisclosure) => {
 			const key = "app-" + appid;
@@ -145,8 +151,9 @@
 				value = (await browser.storage.local.get(key))[key];
 			}
 			const {aidisclosure, updated: updatedString} = value || {};
-			const age = Date.now() - new Date(updatedString).getTime();
-			if (age < (aidisclosure ? 30 : 7) * 24 * 60 * 60 * 1000) {
+			const updated = new Date(updatedString).getTime();
+			const age = Date.now() - updated;
+			if (age < (aidisclosure ? 30 : 7) * 24 * 60 * 60 * 1000 && (!lastUpdate || updated > lastUpdate)) {
 				return aidisclosure;
 			}
 		}
