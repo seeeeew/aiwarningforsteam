@@ -27,6 +27,19 @@ This option is slightly less straight-forward, if you've never used a userscript
 1. If necessary, install a userscript manager for your browser. ([Greasy Fork](https://greasyfork.org/#home-step-1) has instructions.)
 2. [Click here to install the userscript](https://github.com/seeeeew/aiwarningforsteam/raw/refs/heads/main/aiwarningforsteam.user.js) _or_ download [`aiwarningforsteam.user.js`](https://github.com/seeeeew/aiwarningforsteam/blob/main/aiwarningforsteam.user.js) to install it manually.
 
+### Option 3: Install as browser extension to Steam
+
+This method is not fully supported, but will let you install directly in the Steam client.
+1. Open the Store tab of the Steam Client.
+2. Right click any link on the store page and select "Open in new tab"
+3. In the new window, paste the following into the URL bar and hit Enter.
+   ```
+   https://chromewebstore.google.com/detail/ai-warning-for-steam/clegcobheppnnigaaeelfkeomjcngmnh
+   ```
+4. Click "Add to Chrome".
+5. In the download window, save the extension to any folder. (The install file will delete itself once installed)
+6. Close the Chromium window that opens up.
+
 ## Platform and language support
 
 The native browser extension should work in any up-to-date version of Firefox, Chrome, or any related browsers that can install extensions from the same sources, on any desktop OS. The Firefox version also works on mobile systems.
