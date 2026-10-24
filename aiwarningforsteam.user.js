@@ -202,9 +202,7 @@
 				max-height: 350px;
 			}
 			.aiwarning_watermark {
-				position: absolute;
-				left: 10px;
-				bottom: 10px;
+				align-self: center;
 				color: white;
 				opacity: 0.25;
 				text-decoration: none;
@@ -212,6 +210,10 @@
 			}
 			.aiwarning_watermark:hover {
 				opacity: 0.6;
+			}
+			.newmodal_buttons {
+				display: flex;
+				justify-content: space-between;
 			}
 		`;
 
@@ -238,13 +240,13 @@
 							<div class="newmodal_content">
 								<div class="newmodal_prompt_description"></div>
 								<div class="newmodal_buttons">
+									<a href="${homepage}" class="aiwarning_watermark">${name} v${version}</a>
 									<div class="btn_blue_steamui btn_medium aiwarning_close">
 										<span>${msg.close[language]}</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<a href="${homepage}" class="aiwarning_watermark">${name} v${version}</a>
 					</div>
 				</div>
 			`;
